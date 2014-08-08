@@ -10,8 +10,13 @@ $(document).ready(function() {
     /*upon submittal, appends added list items as new divisions, 
             with delete and "check-off" cues incorporated as children and 
             marked 'trash'and 'bag' respetively*/
-    $("#list").prepend($("<li class='item-added animated flipInX'>" + item + "<div class='delete'><span>&#x2717</span></div><div class='check'><span>&#x2713</span></div></li>"));
-    $("#add").val('');
+    if (item == '') {
+      $("#add").val('');
+    }
+    else {
+      $("#list").prepend($("<li class='item-added animated flipInX'>" + item + "<div class='delete'><span>&#x2717</span></div><div class='check'><span>&#x2713</span></div></li>"));
+      $("#add").val('');
+    }
   });
 
     /*allows user to delete a list item*/
